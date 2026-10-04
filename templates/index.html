@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "partials/hero.html" %}
+
+    <section id="experience" class="reveal" aria-labelledby="experience-title">
+        <div class="container">
+            <p class="section-label">02 / EXPERIENCE</p>
+            <h2 id="experience-title">Experience</h2>
+            <ol class="timeline">
+                {% for exp in experience %}
+                <li class="timeline-item">
+                    <h3>{{ exp.role }}, {{ exp.company }}</h3>
+                    <p class="meta">{{ exp.period }} · {{ exp.location }}</p>
+                    <ul>
+                        {% for duty in exp.duties %}
+                        <li>{{ duty }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </section>
+
+    <section id="skills" class="reveal" aria-labelledby="skills-title">
+        <div class="container">
+            <p class="section-label">03 / SKILLS</p>
+            <h2 id="skills-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Hard skills</h3>
+                    <ul>
+                        {% for skill in skills.hard %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft skills</h3>
+                    <ul>
+                        {% for skill in skills.soft %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="skill-category is-learning">
+                    <h3>Learning now <span class="tag">in progress</span></h3>
+                    <ul>
+                        {% for skill in skills.learning %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="reveal" aria-labelledby="education-title">
+        <div class="container">
+            <p class="section-label">04 / EDUCATION AND ORGANISATION</p>
+            <h2 id="education-title">Education and organisation</h2>
+            <div class="two-col">
+                <div>
+                    <h3 class="col-title">Education</h3>
+                    {% for edu in education %}
+                    <article class="card-item">
+                        <h4>{{ edu.degree }}</h4>
+                        <p class="meta">{{ edu.institution }}</p>
+                        <p class="meta">{{ edu.period }} · {{ edu.location }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+                <div>
+                    <h3 class="col-title">Organisation</h3>
+                    {% for org in organisation %}
+                    <article class="card-item">
+                        <h4>{{ org.role }}, {{ org.name }}</h4>
+                        <p class="meta">{{ org.period }} · {{ org.location }}</p>
+                        <p>{{ org.description }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievement" class="reveal" aria-labelledby="achievement-title">
+        <div class="container">
+            <p class="section-label">05 / ACHIEVEMENT</p>
+            <h2 id="achievement-title">Achievement</h2>
+            {% for ach in achievement %}
+            <article class="achievement-item">
+                <h3>{{ ach.title }}</h3>
+                <p class="meta">{{ ach.event }} ({{ ach.year }})</p>
+                {% if ach.description %}<p>{{ ach.description }}</p>{% endif %}
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="contact" class="reveal" aria-labelledby="contact-title">
+        <div class="container">
+            <p class="section-label">06 / CONTACT</p>
+            <h2 id="contact-title">Contact</h2>
+            <p>
+                <a href="mailto:{{ profile.email }}">{{ profile.email }}</a><br>
+                <a href="{{ profile.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}

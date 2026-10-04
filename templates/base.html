@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} - Portfolio</title>
+    <meta name="description" content="{{ profile.headline }}">
+    <meta property="og:title" content="{{ profile.name }}">
+    <meta property="og:description" content="{{ profile.headline }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <a class="logo" href="#about">DEVIANA AURELL</a>
+            <nav class="nav-links" aria-label="Main">
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+    <footer><div class="container">&copy; 2026 {{ profile.name }}</div></footer>
+    <script src="{{ url_for('static', filename='js/hero-scroll.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/hero-face.js') }}" defer></script>
+</body>
+</html>

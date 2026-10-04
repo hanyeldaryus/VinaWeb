@@ -1,0 +1,45 @@
+{% set first, last = profile.name.split(' ', 1) %}
+<section class="hero" id="about" aria-label="Introduction">
+  <div class="hero-stage">
+    <div class="hero-copy">
+      <p class="mono">01 / HERO</p>
+      <h1>{{ first }}<br>{{ last }}</h1>
+      <p class="hero-line">
+        <span class="line-start">Machine operator, 5 years.<br>Scroll to follow the line.</span>
+        <span class="line-end">Now building with technology.</span>
+      </p>
+      <div class="hero-cta">
+        <a href="#experience">View experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="hero-frame">
+      <video id="hero-video" src="{{ url_for('static', filename='video/hero.mp4') }}"
+             muted playsinline preload="auto" aria-hidden="true"
+             poster="{{ url_for('static', filename='img/hero-poster.jpg') }}"></video>
+      <i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i>
+      <div class="frame-bar">
+        <span>hero.mp4</span><span>frame <b id="frame-pct">50</b>%</span>
+        <div class="scrub"><b id="scrub-marker"></b></div>
+      </div>
+    </div>
+
+    <div class="trace">
+      <svg viewBox="0 0 620 64" role="img" aria-label="Trace connecting Assembly, Testing, Quality, SOP, and technology">
+        <path class="base" d="M16 24 H150 V40 H300 V24 H450 V40 H604"/>
+        <path class="draw" d="M16 24 H150 V40 H300 V24 H450 V40 H604"/>
+        <circle data-at="0.02" cx="16" cy="24" r="5"/>
+        <circle data-at="0.24" cx="150" cy="40" r="5"/>
+        <circle data-at="0.50" cx="300" cy="24" r="5"/>
+        <circle data-at="0.76" cx="450" cy="40" r="5"/>
+        <circle data-at="0.98" cx="604" cy="40" r="7"/>
+        <text data-at="0.02" x="16" y="12">Assembly</text>
+        <text data-at="0.24" x="150" y="60">Testing</text>
+        <text data-at="0.50" x="300" y="12">Quality</text>
+        <text data-at="0.76" x="450" y="60">SOP</text>
+        <text data-at="0.98" x="604" y="60" text-anchor="end">Now: technology</text>
+      </svg>
+    </div>
+  </div>
+</section>
